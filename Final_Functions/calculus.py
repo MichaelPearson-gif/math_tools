@@ -12,10 +12,12 @@ x = symbols('x')
 
 # Power Rule
 # The Power Rule (cx^exp), multiplies the c and exp together than the exp is subtracted by 1
-def power(c):
+# c is an optional arguments for constant values that could be multiplied by the variable
+# d is an optional arguments for the exponent values
+def power(c=1, d=1):
     
     # Take the derivate of x^c
-    derivative = diff(x**c)
+    derivative = diff(c*x**d)
     
     # Return the result
     return derivative
@@ -44,3 +46,4 @@ def subtraction(c=1, d=1, e=1, f=1):
     # Return the result
     return derivative
 
+print(power(3))
