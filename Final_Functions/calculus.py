@@ -1,31 +1,46 @@
 # Import dependencies
 import numpy as np 
 
+# SymPy is a nice python library with the ability to do calculus work
+# I will be using this to build functions
+from sympy import *
+
+# Set x as the symbol
+x = symbols('x')
+
 # Creating Functions for Finding Derivatives
 
 # Power Rule
 # The Power Rule (cx^exp), multiplies the c and exp together than the exp is subtracted by 1
-def power_rule(c, x, exp):
+def power(c):
     
-    # c represents the constant number multiplied by our variable
-    # x represents our unknown variable
-    # exp represents our exponent expression
+    # Take the derivate of x^c
+    derivative = diff(x**c)
     
-    # multiply the constant and the exponent
-    new_c = c * exp
+    # Return the result
+    return derivative
+
+# Addition Rule
+# c and e are optional arguments for constant values that could be multiplied by the variable
+# d and f are optional arguments for the exponent values 
+# Default is set to 1 so if nothing is passed through it then it turns into a phantom 1
+def addition(c=1, d=1, e=1, f=1):
     
-    # Subtract the exponent by 1
-    new_exp = exp - 1
+    # Take the derivative of cx^d + cx^d
+    derivative = diff(c*x**d + e*x**f)
     
-    # Create a condition so that we get 3 types of results dependent on what the new_exp is equivalent to
-    # if new_exp = 0, then just print the resulting constant new_c
-    if new_exp == 0:
-        print(new_c)
+    # Return the result
+    return derivative
+
+# Subtraction Rule
+# c and e are optional arguments for constant values that could be multiplied by the variable
+# d and f are optional arguments for the exponent values 
+# Default is set to 1 so if nothing is passed through it then it turns into a phantom 1
+def subtraction(c=1, d=1, e=1, f=1):
     
-    # if new_exp = 1, then print new_c*x for a phantom 1 is on the exponent of x
-    elif new_exp == 1:
-        print(f'{new_c}{x}')
+    # Take the derivative of cx^d - cx^d
+    derivative = diff(c*x**d - e*x**f)
     
-    # Otherwise print the statement new_c*x^new_exp
-    else:
-        print(f'{new_c}{x}^{new_exp}')
+    # Return the result
+    return derivative
+
